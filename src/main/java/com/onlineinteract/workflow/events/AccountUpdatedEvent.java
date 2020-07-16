@@ -1,23 +1,23 @@
 package com.onlineinteract.workflow.events;
 
-import com.onlineinteract.workflow.domain.account.Account;
+import com.onlineinteract.workflow.domain.account.AccountEvent;
 
 public class AccountUpdatedEvent extends Event {
-	private Account account;
+	private AccountEvent account;
 	
 	public AccountUpdatedEvent() {
 	}
 	
-	public AccountUpdatedEvent(Account account) {
+	public AccountUpdatedEvent(AccountEvent account) {
 		this.account = account;
 		this.setType("AccountUpdatedEvent");
 	}
 
-	public Account getAccount() {
+	public AccountEvent getAccount() {
 		return account;
 	}
 
-	public void setAccount(Account account) {
+	public void setAccount(AccountEvent account) {
 		this.account = account;
 	}
 

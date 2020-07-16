@@ -1,13 +1,13 @@
 package com.onlineinteract.workflow.domain.customer_account;
 
-import com.onlineinteract.workflow.domain.account.Account;
+import com.onlineinteract.workflow.domain.account.v1.AccountEvent;
 import com.onlineinteract.workflow.domain.customer.read.AccountCustomer;
 
 public class CustomerAccount {
 	private String id;
 	private String accountId;
 	private String customerId;
-	private Account account;
+	private AccountEvent account;
 	private AccountCustomer customer;
 	
 	public CustomerAccount() {
@@ -37,11 +37,11 @@ public class CustomerAccount {
 		this.customerId = customerId;
 	}
 	
-	public Account getAccount() {
+	public AccountEvent getAccount() {
 		return account;
 	}
 	
-	public void setAccount(Account account) {
+	public void setAccount(AccountEvent account) {
 		this.account = account;
 	}
 	

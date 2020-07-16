@@ -1,13 +1,13 @@
 package com.onlineinteract.workflow.domain.account;
 
-public class Account {
+public class AccountEvent {
 	private String id;
 	private String name;
 	private String type;
 	private String openingBalance;
 	private String savingsRate;
 	
-	public Account() {
+	public AccountEvent() {
 	}
 
 	public String getId() {
@@ -70,7 +70,7 @@ public class Account {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Account other = (Account) obj;
+		AccountEvent other = (AccountEvent) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
