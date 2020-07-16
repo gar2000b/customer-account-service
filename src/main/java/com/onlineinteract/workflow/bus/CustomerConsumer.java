@@ -41,7 +41,7 @@ public class CustomerConsumer {
 
 	private void processRecords() {
 		consumer.poll(0);
-		consumer.seekToBeginning(consumer.assignment());
+		//consumer.seekToBeginning(consumer.assignment());
 		runningFlag = true;
 		System.out.println("Spinning up kafka customer consumer");
 		new Thread(() -> {

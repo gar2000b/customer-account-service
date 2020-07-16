@@ -1,5 +1,7 @@
 package com.onlineinteract.workflow.repository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -11,12 +13,10 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.onlineinteract.workflow.domain.account.Account;
-import com.onlineinteract.workflow.events.AccountCreatedEvent;
-import com.onlineinteract.workflow.events.AccountUpdatedEvent;
-import com.onlineinteract.workflow.events.Event;
+import com.onlineinteract.workflow.domain.account.v1.AccountEvent;
 import com.onlineinteract.workflow.repository.dbclient.DbClient;
 import com.onlineinteract.workflow.utility.JsonParser;
+import com.onlineinteract.workflow.utility.MongoUtility;
 
 @Repository
 public class AccountRepository {
@@ -27,39 +27,41 @@ public class AccountRepository {
 	public AccountRepository() {
 	}
 
-	public void processEvent(Event event) {
-		if (event instanceof AccountCreatedEvent)
-			createAccount(((AccountCreatedEvent) event).getAccount());
-		if (event instanceof AccountUpdatedEvent)
-			updateAccount(((AccountUpdatedEvent) event).getAccount());
+	public void processEvent(AccountEvent account) {
+		if (account.getEventType().toString().equals("AccountCreatedEvent"))
+			createAccount(account);
+		if (account.getEventType().toString().equals("AccountUpdatedEvent"))
+			updateAccount(account);
 	}
 
-	private void createAccount(Account account) {
+	private void createAccount(AccountEvent account) {
 		MongoDatabase database = dbClient.getMongoClient().getDatabase("customer-accounts");
-		Document accountDocument = Document.parse(JsonParser.toJson(account));
+		Document accountDocument = Document.parse(account.toString());
 		MongoCollection<Document> accountsCollection = database.getCollection("accounts");
+		MongoUtility.removeEventMembers(accountDocument);
 		accountsCollection.insertOne(accountDocument);
 		System.out.println("Account Persisted to accounts collection");
 	}
 
-	private void updateAccount(Account account) {
+	private void updateAccount(AccountEvent account) {
 		MongoDatabase database = dbClient.getMongoClient().getDatabase("customer-accounts");
-		Document accountDocument = Document.parse(JsonParser.toJson(account));
+		Document accountDocument = Document.parse(account.toString());
 		MongoCollection<Document> accountsCollection = database.getCollection("accounts");
+		MongoUtility.removeEventMembers(accountDocument);
 		accountsCollection.replaceOne(new Document("id", account.getId()), accountDocument);
 		System.out.println("Account Updated in accounts collection");
 	}
 
-	public Account getAccount(String accountId) {
+	public AccountEvent getAccount(String accountId) {
 		MongoDatabase database = dbClient.getMongoClient().getDatabase("customer-accounts");
 		MongoCollection<Document> accountsCollection = database.getCollection("accounts");
 		BasicDBObject query = new BasicDBObject();
 		query.put("id", accountId);
-		FindIterable<Document> accountDocuments = accountsCollection.find(query);
-		for (Document accountDocument : accountDocuments) {
+		FindIterable<Document> accountDocumentsIterable = accountsCollection.find(query);
+		for (Document accountDocument : accountDocumentsIterable) {
 			System.out.println("Found: " + accountDocument.toJson());
 			accountDocument.remove("_id");
-			return JsonParser.fromJson(accountDocument.toJson(), Account.class);
+			return JsonParser.fromJson(accountDocument.toJson(), AccountEvent.class);
 		}
 
 		return null;
@@ -68,10 +70,12 @@ public class AccountRepository {
 	public String getAllAccounts() {
 		MongoDatabase database = dbClient.getMongoClient().getDatabase("customer-accounts");
 		MongoCollection<Document> accountsCollection = database.getCollection("accounts");
-		FindIterable<Document> accountDocuments = accountsCollection.find();
-		for (Document accountDocument : accountDocuments) {
+		FindIterable<Document> accountDocumentsIterable = accountsCollection.find();
+		List<Document> accountDocuments = new ArrayList<>();
+		for (Document accountDocument : accountDocumentsIterable) {
 			System.out.println("Removing _id from account");
 			accountDocument.remove("_id");
+			accountDocuments.add(accountDocument);
 		}
 		String allAccounts = StreamSupport.stream(accountDocuments.spliterator(), false).map(Document::toJson)
 				.collect(Collectors.joining(", ", "[", "]"));

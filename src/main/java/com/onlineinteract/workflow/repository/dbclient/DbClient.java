@@ -18,10 +18,10 @@ public class DbClient {
 
 	public DbClient() {
 		System.out.println("Initializing MongoDB Client");
-		String user = "customer-accounts";
 		String host = "tiny.canadacentral.cloudapp.azure.com";
 		int port = 27017;
 		String db = "customer-accounts";
+		String user = "customer-accounts";
 		String pwd = "password";
 
 		address = new ServerAddress(host, port);
