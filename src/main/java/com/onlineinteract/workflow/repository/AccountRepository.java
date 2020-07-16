@@ -16,7 +16,6 @@ import com.mongodb.client.MongoDatabase;
 import com.onlineinteract.workflow.domain.account.v1.AccountEvent;
 import com.onlineinteract.workflow.repository.dbclient.DbClient;
 import com.onlineinteract.workflow.utility.JsonParser;
-import com.onlineinteract.workflow.utility.MongoUtility;
 
 @Repository
 public class AccountRepository {
@@ -36,19 +35,17 @@ public class AccountRepository {
 
 	private void createAccount(AccountEvent account) {
 		MongoDatabase database = dbClient.getMongoClient().getDatabase("customer-accounts");
-		Document accountDocument = Document.parse(account.toString());
+		Document accountDocument = Document.parse(account.getV1().toString());
 		MongoCollection<Document> accountsCollection = database.getCollection("accounts");
-		MongoUtility.removeEventMembers(accountDocument);
 		accountsCollection.insertOne(accountDocument);
 		System.out.println("Account Persisted to accounts collection");
 	}
 
 	private void updateAccount(AccountEvent account) {
 		MongoDatabase database = dbClient.getMongoClient().getDatabase("customer-accounts");
-		Document accountDocument = Document.parse(account.toString());
+		Document accountDocument = Document.parse(account.getV1().toString());
 		MongoCollection<Document> accountsCollection = database.getCollection("accounts");
-		MongoUtility.removeEventMembers(accountDocument);
-		accountsCollection.replaceOne(new Document("id", account.getId()), accountDocument);
+		accountsCollection.replaceOne(new Document("id", account.getV1().getId()), accountDocument);
 		System.out.println("Account Updated in accounts collection");
 	}
 

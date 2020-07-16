@@ -10,7 +10,6 @@ import java.util.Properties;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -66,19 +65,12 @@ public class AccountConsumer {
 			while (runningFlag) {
 				ConsumerRecords<String, AccountEvent> records = consumer.poll(100);
 				for (ConsumerRecord<String, AccountEvent> consumerRecord : records) {
-					if (consumerRecord.value().getSchema().toString().equals(schema)) {
-						System.out.println(
-								"Consuming event from customer-event-topic with id/key of: " + consumerRecord.key());
-						AccountEvent account = (AccountEvent) consumerRecord.value();
-						if (account.getEventType().toString().contains("AccountCreatedEvent")
-								|| account.getEventType().toString().contains("AccountUpdatedEvent")) {
-							accountRepository.processEvent(account);
-						}
-					} else {
-						String currentRecordSchemaVersion = determineSchema(
-								consumerRecord.value().getSchema().toString());
-						System.out.println("Schema is different for current record\nOur Schema Version: "
-								+ schemaVersion + "\nCurrent Record Schema Version: " + currentRecordSchemaVersion);
+					System.out.println(
+							"Consuming event from customer-event-topic with id/key of: " + consumerRecord.key());
+					AccountEvent account = (AccountEvent) consumerRecord.value();
+					if (account.getEventType().toString().contains("AccountCreatedEvent")
+							|| account.getEventType().toString().contains("AccountUpdatedEvent")) {
+						accountRepository.processEvent(account);
 					}
 				}
 			}
@@ -114,6 +106,7 @@ public class AccountConsumer {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private String determineSchema(String schema) {
 		for (Map<String, String> schemaEntry : schemas) {
 			if (schemaEntry.get("schema").equals(schema)) {
