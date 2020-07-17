@@ -1,4 +1,4 @@
-package com.onlineinteract.workflow.repository.dbclient;
+package com.onlineinteract.workflow.dbclient;
 
 import javax.annotation.PreDestroy;
 
@@ -11,6 +11,8 @@ import com.mongodb.ServerAddress;
 
 @Component
 public class DbClient {
+	
+	public static final String DATABASE = "customer-accounts";
 
 	private MongoClient mongoClient;
 	private ServerAddress address;
@@ -20,12 +22,11 @@ public class DbClient {
 		System.out.println("Initializing MongoDB Client");
 		String host = "tiny.canadacentral.cloudapp.azure.com";
 		int port = 27017;
-		String db = "customer-accounts";
 		String user = "customer-accounts";
 		String pwd = "password";
 
 		address = new ServerAddress(host, port);
-		credential = MongoCredential.createCredential(user, db, pwd.toCharArray());
+		credential = MongoCredential.createCredential(user, DATABASE, pwd.toCharArray());
 
 		MongoClientOptions mongoClientOptions = new MongoClientOptions.Builder().heartbeatConnectTimeout(20000)
 				.heartbeatFrequency(10000).heartbeatSocketTimeout(20000).connectTimeout(20000).socketTimeout(20000)

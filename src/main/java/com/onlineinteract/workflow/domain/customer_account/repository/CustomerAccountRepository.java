@@ -1,4 +1,4 @@
-package com.onlineinteract.workflow.repository;
+package com.onlineinteract.workflow.domain.customer_account.repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.onlineinteract.workflow.dbclient.DbClient;
 import com.onlineinteract.workflow.domain.customer_account.CustomerAccount;
-import com.onlineinteract.workflow.repository.dbclient.DbClient;
 import com.onlineinteract.workflow.utility.JsonParser;
 
 @Repository

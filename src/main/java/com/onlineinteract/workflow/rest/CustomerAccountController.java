@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.onlineinteract.workflow.domain.account.repository.AccountRepository;
+import com.onlineinteract.workflow.domain.customer.repository.AccountCustomerRepository;
 import com.onlineinteract.workflow.domain.customer_account.CustomerAccount;
-import com.onlineinteract.workflow.repository.AccountCustomerRepository;
-import com.onlineinteract.workflow.repository.AccountRepository;
-import com.onlineinteract.workflow.repository.CustomerAccountRepository;
+import com.onlineinteract.workflow.domain.customer_account.repository.CustomerAccountRepository;
 import com.onlineinteract.workflow.utility.JsonParser;
 
 @Controller

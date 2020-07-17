@@ -1,18 +1,18 @@
 package com.onlineinteract.workflow.domain.customer_account;
 
-import com.onlineinteract.workflow.domain.account.AccountEvent;
+import com.onlineinteract.workflow.domain.account.AccountV1;
 import com.onlineinteract.workflow.domain.customer.read.AccountCustomer;
 
 public class CustomerAccount {
 	private String id;
 	private String accountId;
 	private String customerId;
-	private AccountEvent account;
+	private AccountV1 account;
 	private AccountCustomer customer;
-	
+
 	public CustomerAccount() {
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -24,31 +24,31 @@ public class CustomerAccount {
 	public String getAccountId() {
 		return accountId;
 	}
-	
+
 	public void setAccountId(String accountId) {
 		this.accountId = accountId;
 	}
-	
+
 	public String getCustomerId() {
 		return customerId;
 	}
-	
+
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
-	
-	public AccountEvent getAccount() {
+
+	public AccountV1 getAccount() {
 		return account;
 	}
-	
-	public void setAccount(AccountEvent account) {
+
+	public void setAccount(AccountV1 account) {
 		this.account = account;
 	}
-	
+
 	public AccountCustomer getCustomer() {
 		return customer;
 	}
-	
+
 	public void setCustomer(AccountCustomer customer) {
 		this.customer = customer;
 	}

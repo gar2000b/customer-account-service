@@ -1,4 +1,4 @@
-package com.onlineinteract.workflow.events;
+package com.onlineinteract.workflow.domain.customer.events;
 
 import java.util.Date;
 

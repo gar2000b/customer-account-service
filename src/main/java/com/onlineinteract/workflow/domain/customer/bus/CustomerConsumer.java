@@ -1,4 +1,4 @@
-package com.onlineinteract.workflow.bus;
+package com.onlineinteract.workflow.domain.customer.bus;
 
 import java.util.Arrays;
 import java.util.Properties;
@@ -13,9 +13,9 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.onlineinteract.workflow.events.CustomerCreatedEvent;
-import com.onlineinteract.workflow.events.CustomerUpdatedEvent;
-import com.onlineinteract.workflow.repository.AccountCustomerRepository;
+import com.onlineinteract.workflow.domain.customer.events.CustomerCreatedEvent;
+import com.onlineinteract.workflow.domain.customer.events.CustomerUpdatedEvent;
+import com.onlineinteract.workflow.domain.customer.repository.AccountCustomerRepository;
 import com.onlineinteract.workflow.utility.JsonParser;
 
 @Component

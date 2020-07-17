@@ -1,16 +1,16 @@
-package com.onlineinteract.workflow.events;
+package com.onlineinteract.workflow.domain.customer.events;
 
 import com.onlineinteract.workflow.domain.customer.write.Customer;
 
-public class CustomerCreatedEvent extends Event {
+public class CustomerUpdatedEvent extends Event {
 	private Customer customer;
 
-	public CustomerCreatedEvent() {
+	public CustomerUpdatedEvent() {
 	}
 
-	public CustomerCreatedEvent(Customer customer) {
+	public CustomerUpdatedEvent(Customer customer) {
 		this.customer = customer;
-		this.setType("CustomerCreatedEvent");
+		this.setType("CustomerUpdatedEvent");
 	}
 
 	public Customer getCustomer() {
@@ -37,7 +37,7 @@ public class CustomerCreatedEvent extends Event {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CustomerCreatedEvent other = (CustomerCreatedEvent) obj;
+		CustomerUpdatedEvent other = (CustomerUpdatedEvent) obj;
 		if (customer == null) {
 			if (other.customer != null)
 				return false;

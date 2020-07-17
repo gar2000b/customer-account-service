@@ -1,4 +1,4 @@
-package com.onlineinteract.workflow.repository;
+package com.onlineinteract.workflow.domain.customer.repository;
 
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +8,12 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.onlineinteract.workflow.dbclient.DbClient;
+import com.onlineinteract.workflow.domain.customer.events.CustomerCreatedEvent;
+import com.onlineinteract.workflow.domain.customer.events.CustomerUpdatedEvent;
+import com.onlineinteract.workflow.domain.customer.events.Event;
 import com.onlineinteract.workflow.domain.customer.read.AccountCustomer;
 import com.onlineinteract.workflow.domain.customer.write.Customer;
-import com.onlineinteract.workflow.events.CustomerCreatedEvent;
-import com.onlineinteract.workflow.events.CustomerUpdatedEvent;
-import com.onlineinteract.workflow.events.Event;
-import com.onlineinteract.workflow.repository.dbclient.DbClient;
 import com.onlineinteract.workflow.utility.JsonParser;
 
 @Repository
