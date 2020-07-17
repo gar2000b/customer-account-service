@@ -21,7 +21,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import com.onlineinteract.workflow.domain.account.v1.AccountEvent;
+import com.onlineinteract.workflow.domain.account.AccountEvent;
 import com.onlineinteract.workflow.repository.AccountRepository;
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
@@ -44,8 +44,8 @@ public class AccountConsumer {
 
 	@PostConstruct
 	public void startConsumer() {
-		fetchSchemas();
-		determineCurrentSchema();
+//		fetchSchemas();
+//		determineCurrentSchema();
 		createConsumer();
 		processRecords();
 	}

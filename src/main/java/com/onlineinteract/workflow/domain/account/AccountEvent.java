@@ -3,20 +3,20 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.onlineinteract.workflow.domain.account.v1;
+package com.onlineinteract.workflow.domain.account;
 
 import org.apache.avro.specific.SpecificData;
 
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6648818248169671484L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AccountEvent\",\"namespace\":\"com.onlineinteract.workflow.domain.account.v1\",\"fields\":[{\"name\":\"eventId\",\"type\":\"string\"},{\"name\":\"created\",\"type\":\"long\"},{\"name\":\"eventType\",\"type\":\"string\"},{\"name\":\"v1\",\"type\":{\"type\":\"record\",\"name\":\"AccountV1\",\"fields\":[{\"name\":\"version\",\"type\":\"string\"},{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"type\",\"type\":\"string\"},{\"name\":\"openingBalance\",\"type\":\"string\"},{\"name\":\"savingsRate\",\"type\":\"string\"}]}}]}");
+  private static final long serialVersionUID = -6190393690966902934L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AccountEvent\",\"namespace\":\"com.onlineinteract.workflow.domain.account\",\"fields\":[{\"name\":\"eventId\",\"type\":\"string\"},{\"name\":\"created\",\"type\":\"long\"},{\"name\":\"eventType\",\"type\":\"string\"},{\"name\":\"v1\",\"type\":{\"type\":\"record\",\"name\":\"AccountV1\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"type\",\"type\":\"string\"},{\"name\":\"openingBalance\",\"type\":\"string\"},{\"name\":\"savingsRate\",\"type\":\"string\"}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence eventId;
   @Deprecated public long created;
   @Deprecated public java.lang.CharSequence eventType;
-  @Deprecated public com.onlineinteract.workflow.domain.account.v1.AccountV1 v1;
+  @Deprecated public com.onlineinteract.workflow.domain.account.AccountV1 v1;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -32,7 +32,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
    * @param eventType The new value for eventType
    * @param v1 The new value for v1
    */
-  public AccountEvent(java.lang.CharSequence eventId, java.lang.Long created, java.lang.CharSequence eventType, com.onlineinteract.workflow.domain.account.v1.AccountV1 v1) {
+  public AccountEvent(java.lang.CharSequence eventId, java.lang.Long created, java.lang.CharSequence eventType, com.onlineinteract.workflow.domain.account.AccountV1 v1) {
     this.eventId = eventId;
     this.created = created;
     this.eventType = eventType;
@@ -58,7 +58,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
     case 0: eventId = (java.lang.CharSequence)value$; break;
     case 1: created = (java.lang.Long)value$; break;
     case 2: eventType = (java.lang.CharSequence)value$; break;
-    case 3: v1 = (com.onlineinteract.workflow.domain.account.v1.AccountV1)value$; break;
+    case 3: v1 = (com.onlineinteract.workflow.domain.account.AccountV1)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -115,7 +115,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
    * Gets the value of the 'v1' field.
    * @return The value of the 'v1' field.
    */
-  public com.onlineinteract.workflow.domain.account.v1.AccountV1 getV1() {
+  public com.onlineinteract.workflow.domain.account.AccountV1 getV1() {
     return v1;
   }
 
@@ -123,7 +123,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
    * Sets the value of the 'v1' field.
    * @param value the value to set.
    */
-  public void setV1(com.onlineinteract.workflow.domain.account.v1.AccountV1 value) {
+  public void setV1(com.onlineinteract.workflow.domain.account.AccountV1 value) {
     this.v1 = value;
   }
 
@@ -131,8 +131,8 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
    * Creates a new AccountEvent RecordBuilder.
    * @return A new AccountEvent RecordBuilder
    */
-  public static com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder newBuilder() {
-    return new com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder();
+  public static com.onlineinteract.workflow.domain.account.AccountEvent.Builder newBuilder() {
+    return new com.onlineinteract.workflow.domain.account.AccountEvent.Builder();
   }
 
   /**
@@ -140,8 +140,8 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
    * @param other The existing builder to copy.
    * @return A new AccountEvent RecordBuilder
    */
-  public static com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder newBuilder(com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder other) {
-    return new com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder(other);
+  public static com.onlineinteract.workflow.domain.account.AccountEvent.Builder newBuilder(com.onlineinteract.workflow.domain.account.AccountEvent.Builder other) {
+    return new com.onlineinteract.workflow.domain.account.AccountEvent.Builder(other);
   }
 
   /**
@@ -149,8 +149,8 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
    * @param other The existing instance to copy.
    * @return A new AccountEvent RecordBuilder
    */
-  public static com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder newBuilder(com.onlineinteract.workflow.domain.account.v1.AccountEvent other) {
-    return new com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder(other);
+  public static com.onlineinteract.workflow.domain.account.AccountEvent.Builder newBuilder(com.onlineinteract.workflow.domain.account.AccountEvent other) {
+    return new com.onlineinteract.workflow.domain.account.AccountEvent.Builder(other);
   }
 
   /**
@@ -162,8 +162,8 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
     private java.lang.CharSequence eventId;
     private long created;
     private java.lang.CharSequence eventType;
-    private com.onlineinteract.workflow.domain.account.v1.AccountV1 v1;
-    private com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder v1Builder;
+    private com.onlineinteract.workflow.domain.account.AccountV1 v1;
+    private com.onlineinteract.workflow.domain.account.AccountV1.Builder v1Builder;
 
     /** Creates a new Builder */
     private Builder() {
@@ -174,7 +174,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder other) {
+    private Builder(com.onlineinteract.workflow.domain.account.AccountEvent.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.eventId)) {
         this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
@@ -193,7 +193,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
         fieldSetFlags()[3] = true;
       }
       if (other.hasV1Builder()) {
-        this.v1Builder = com.onlineinteract.workflow.domain.account.v1.AccountV1.newBuilder(other.getV1Builder());
+        this.v1Builder = com.onlineinteract.workflow.domain.account.AccountV1.newBuilder(other.getV1Builder());
       }
     }
 
@@ -201,7 +201,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
      * Creates a Builder by copying an existing AccountEvent instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.onlineinteract.workflow.domain.account.v1.AccountEvent other) {
+    private Builder(com.onlineinteract.workflow.domain.account.AccountEvent other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.eventId)) {
         this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
@@ -235,7 +235,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
       * @param value The value of 'eventId'.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder setEventId(java.lang.CharSequence value) {
+    public com.onlineinteract.workflow.domain.account.AccountEvent.Builder setEventId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.eventId = value;
       fieldSetFlags()[0] = true;
@@ -255,7 +255,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
       * Clears the value of the 'eventId' field.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder clearEventId() {
+    public com.onlineinteract.workflow.domain.account.AccountEvent.Builder clearEventId() {
       eventId = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -274,7 +274,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
       * @param value The value of 'created'.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder setCreated(long value) {
+    public com.onlineinteract.workflow.domain.account.AccountEvent.Builder setCreated(long value) {
       validate(fields()[1], value);
       this.created = value;
       fieldSetFlags()[1] = true;
@@ -294,7 +294,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
       * Clears the value of the 'created' field.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder clearCreated() {
+    public com.onlineinteract.workflow.domain.account.AccountEvent.Builder clearCreated() {
       fieldSetFlags()[1] = false;
       return this;
     }
@@ -312,7 +312,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
       * @param value The value of 'eventType'.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder setEventType(java.lang.CharSequence value) {
+    public com.onlineinteract.workflow.domain.account.AccountEvent.Builder setEventType(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.eventType = value;
       fieldSetFlags()[2] = true;
@@ -332,7 +332,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
       * Clears the value of the 'eventType' field.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder clearEventType() {
+    public com.onlineinteract.workflow.domain.account.AccountEvent.Builder clearEventType() {
       eventType = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -342,7 +342,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
       * Gets the value of the 'v1' field.
       * @return The value.
       */
-    public com.onlineinteract.workflow.domain.account.v1.AccountV1 getV1() {
+    public com.onlineinteract.workflow.domain.account.AccountV1 getV1() {
       return v1;
     }
 
@@ -351,7 +351,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
       * @param value The value of 'v1'.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder setV1(com.onlineinteract.workflow.domain.account.v1.AccountV1 value) {
+    public com.onlineinteract.workflow.domain.account.AccountEvent.Builder setV1(com.onlineinteract.workflow.domain.account.AccountV1 value) {
       validate(fields()[3], value);
       this.v1Builder = null;
       this.v1 = value;
@@ -371,12 +371,12 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
      * Gets the Builder instance for the 'v1' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder getV1Builder() {
+    public com.onlineinteract.workflow.domain.account.AccountV1.Builder getV1Builder() {
       if (v1Builder == null) {
         if (hasV1()) {
-          setV1Builder(com.onlineinteract.workflow.domain.account.v1.AccountV1.newBuilder(v1));
+          setV1Builder(com.onlineinteract.workflow.domain.account.AccountV1.newBuilder(v1));
         } else {
-          setV1Builder(com.onlineinteract.workflow.domain.account.v1.AccountV1.newBuilder());
+          setV1Builder(com.onlineinteract.workflow.domain.account.AccountV1.newBuilder());
         }
       }
       return v1Builder;
@@ -387,7 +387,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder setV1Builder(com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder value) {
+    public com.onlineinteract.workflow.domain.account.AccountEvent.Builder setV1Builder(com.onlineinteract.workflow.domain.account.AccountV1.Builder value) {
       clearV1();
       v1Builder = value;
       return this;
@@ -405,7 +405,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
       * Clears the value of the 'v1' field.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.v1.AccountEvent.Builder clearV1() {
+    public com.onlineinteract.workflow.domain.account.AccountEvent.Builder clearV1() {
       v1 = null;
       v1Builder = null;
       fieldSetFlags()[3] = false;
@@ -422,7 +422,7 @@ public class AccountEvent extends org.apache.avro.specific.SpecificRecordBase im
         if (v1Builder != null) {
           record.v1 = this.v1Builder.build();
         } else {
-          record.v1 = fieldSetFlags()[3] ? this.v1 : (com.onlineinteract.workflow.domain.account.v1.AccountV1) defaultValue(fields()[3]);
+          record.v1 = fieldSetFlags()[3] ? this.v1 : (com.onlineinteract.workflow.domain.account.AccountV1) defaultValue(fields()[3]);
         }
         return record;
       } catch (Exception e) {

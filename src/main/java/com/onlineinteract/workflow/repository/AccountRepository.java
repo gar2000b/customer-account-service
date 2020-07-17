@@ -13,7 +13,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.onlineinteract.workflow.domain.account.v1.AccountEvent;
+import com.onlineinteract.workflow.domain.account.AccountEvent;
 import com.onlineinteract.workflow.repository.dbclient.DbClient;
 import com.onlineinteract.workflow.utility.JsonParser;
 
