@@ -14,7 +14,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.onlineinteract.workflow.dbclient.DbClient;
-import com.onlineinteract.workflow.domain.account.AccountV1;
+import com.onlineinteract.workflow.domain.account.v1.AccountV1;
 import com.onlineinteract.workflow.utility.JsonParser;
 import com.onlineinteract.workflow.utility.MongoUtility;
 
@@ -27,19 +27,19 @@ public class AccountRepository {
 	public AccountRepository() {
 	}
 
-	public void createAccount(AccountV1 account) {
+	public void createAccount(AccountV1 accountV1) {
 		MongoDatabase database = dbClient.getMongoClient().getDatabase(DbClient.DATABASE);
-		Document accountDocument = Document.parse(account.toString());
+		Document accountDocument = Document.parse(accountV1.toString());
 		MongoCollection<Document> accountsCollection = database.getCollection("accounts");
 		accountsCollection.insertOne(accountDocument);
 		System.out.println("Account Persisted to accounts collection");
 	}
 
-	public void updateAccount(AccountV1 account) {
+	public void updateAccount(AccountV1 accountV1) {
 		MongoDatabase database = dbClient.getMongoClient().getDatabase(DbClient.DATABASE);
-		Document accountDocument = Document.parse(account.toString());
+		Document accountDocument = Document.parse(accountV1.toString());
 		MongoCollection<Document> accountsCollection = database.getCollection("accounts");
-		accountsCollection.replaceOne(new Document("id", account.getId()), accountDocument);
+		accountsCollection.replaceOne(new Document("id", accountV1.getId()), accountDocument);
 		System.out.println("Account Updated in accounts collection");
 	}
 

@@ -52,11 +52,11 @@ public class Consumer {
 				for (ConsumerRecord<String, AccountEvent> consumerRecord : records) {
 					System.out.println(
 							"Consuming event from customer-event-topic with id/key of: " + consumerRecord.key());
-					AccountEvent account = (AccountEvent) consumerRecord.value();
-					if (account.getEventType().toString().contains("AccountCreatedEvent"))
-						accountRepository.createAccount(account.getV1());
-					if (account.getEventType().toString().contains("AccountUpdatedEvent"))
-						accountRepository.updateAccount(account.getV1());
+					AccountEvent accountEvent = (AccountEvent) consumerRecord.value();
+					if (accountEvent.getEventType().toString().contains("AccountCreatedEvent"))
+						accountRepository.createAccount(accountEvent.getV1());
+					if (accountEvent.getEventType().toString().contains("AccountUpdatedEvent"))
+						accountRepository.updateAccount(accountEvent.getV1());
 				}
 			}
 			shutdownConsumerProducer();

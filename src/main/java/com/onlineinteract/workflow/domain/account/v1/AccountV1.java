@@ -3,15 +3,15 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.onlineinteract.workflow.domain.account;
+package com.onlineinteract.workflow.domain.account.v1;
 
 import org.apache.avro.specific.SpecificData;
 
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 7536721082518261244L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AccountV1\",\"namespace\":\"com.onlineinteract.workflow.domain.account\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"type\",\"type\":\"string\"},{\"name\":\"openingBalance\",\"type\":\"string\"},{\"name\":\"savingsRate\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 4054566404933492546L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AccountV1\",\"namespace\":\"com.onlineinteract.workflow.domain.account.v1\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"type\",\"type\":\"string\"},{\"name\":\"openingBalance\",\"type\":\"string\"},{\"name\":\"savingsRate\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence id;
   @Deprecated public java.lang.CharSequence name;
@@ -152,8 +152,8 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
    * Creates a new AccountV1 RecordBuilder.
    * @return A new AccountV1 RecordBuilder
    */
-  public static com.onlineinteract.workflow.domain.account.AccountV1.Builder newBuilder() {
-    return new com.onlineinteract.workflow.domain.account.AccountV1.Builder();
+  public static com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder newBuilder() {
+    return new com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder();
   }
 
   /**
@@ -161,8 +161,8 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
    * @param other The existing builder to copy.
    * @return A new AccountV1 RecordBuilder
    */
-  public static com.onlineinteract.workflow.domain.account.AccountV1.Builder newBuilder(com.onlineinteract.workflow.domain.account.AccountV1.Builder other) {
-    return new com.onlineinteract.workflow.domain.account.AccountV1.Builder(other);
+  public static com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder newBuilder(com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder other) {
+    return new com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder(other);
   }
 
   /**
@@ -170,8 +170,8 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
    * @param other The existing instance to copy.
    * @return A new AccountV1 RecordBuilder
    */
-  public static com.onlineinteract.workflow.domain.account.AccountV1.Builder newBuilder(com.onlineinteract.workflow.domain.account.AccountV1 other) {
-    return new com.onlineinteract.workflow.domain.account.AccountV1.Builder(other);
+  public static com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder newBuilder(com.onlineinteract.workflow.domain.account.v1.AccountV1 other) {
+    return new com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder(other);
   }
 
   /**
@@ -195,7 +195,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.onlineinteract.workflow.domain.account.AccountV1.Builder other) {
+    private Builder(com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -223,7 +223,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
      * Creates a Builder by copying an existing AccountV1 instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.onlineinteract.workflow.domain.account.AccountV1 other) {
+    private Builder(com.onlineinteract.workflow.domain.account.v1.AccountV1 other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -260,7 +260,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.AccountV1.Builder setId(java.lang.CharSequence value) {
+    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder setId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -280,7 +280,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.AccountV1.Builder clearId() {
+    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -299,7 +299,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'name'.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.AccountV1.Builder setName(java.lang.CharSequence value) {
+    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder setName(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.name = value;
       fieldSetFlags()[1] = true;
@@ -319,7 +319,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'name' field.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.AccountV1.Builder clearName() {
+    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder clearName() {
       name = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -338,7 +338,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'type'.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.AccountV1.Builder setType(java.lang.CharSequence value) {
+    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder setType(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.type = value;
       fieldSetFlags()[2] = true;
@@ -358,7 +358,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'type' field.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.AccountV1.Builder clearType() {
+    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder clearType() {
       type = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -377,7 +377,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'openingBalance'.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.AccountV1.Builder setOpeningBalance(java.lang.CharSequence value) {
+    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder setOpeningBalance(java.lang.CharSequence value) {
       validate(fields()[3], value);
       this.openingBalance = value;
       fieldSetFlags()[3] = true;
@@ -397,7 +397,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'openingBalance' field.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.AccountV1.Builder clearOpeningBalance() {
+    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder clearOpeningBalance() {
       openingBalance = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -416,7 +416,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'savingsRate'.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.AccountV1.Builder setSavingsRate(java.lang.CharSequence value) {
+    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder setSavingsRate(java.lang.CharSequence value) {
       validate(fields()[4], value);
       this.savingsRate = value;
       fieldSetFlags()[4] = true;
@@ -436,7 +436,7 @@ public class AccountV1 extends org.apache.avro.specific.SpecificRecordBase imple
       * Clears the value of the 'savingsRate' field.
       * @return This builder.
       */
-    public com.onlineinteract.workflow.domain.account.AccountV1.Builder clearSavingsRate() {
+    public com.onlineinteract.workflow.domain.account.v1.AccountV1.Builder clearSavingsRate() {
       savingsRate = null;
       fieldSetFlags()[4] = false;
       return this;

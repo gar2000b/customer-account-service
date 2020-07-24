@@ -1,6 +1,6 @@
 package com.onlineinteract.workflow.domain.customer_account;
 
-import com.onlineinteract.workflow.domain.account.AccountV1;
+import com.onlineinteract.workflow.domain.account.v1.AccountV1;
 import com.onlineinteract.workflow.domain.customer.read.AccountCustomer;
 
 public class CustomerAccount {
